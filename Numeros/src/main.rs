@@ -90,21 +90,33 @@ impl Numero {
     }
 
    fn raiz_digital(&self) -> u16 {
-    let mut num: u64 = self.valor; 
-    let mut res: u64 = 0;
+       let mut num: u64 = self.valor; 
+       let mut res: u64 = 0;
 
-    while num > 0 {
-        res += num % 10;
-        num /= 10;
+       while num > 0 {
+           res += num % 10;
+           num /= 10;
       
-        if num == 0 && res > 9 {
-            num = res;
-            res = 0;
+           if num == 0 && res > 9 {
+               num = res;
+               res = 0;
         }
     }
     res as u16
-}
+   }
     
+   fn digitos_pares(&self) -> u16{
+       let mut res: u64= 0;
+       let mut num: u64 = self.valor;
+       let mut aux: u16
+       while num>0 {
+           aux=num%10;
+           if aux.es_par {
+               res+=1;
+           }
+       } 
+   res as u16
+   }
 
 /*     fn fibonacci(&self) -> u64 {
         let mut a: u64 = 0;
